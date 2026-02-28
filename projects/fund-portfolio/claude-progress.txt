@@ -169,6 +169,28 @@
 - `src/components/portfolio/FundSearch.tsx` - 搜索组件
 - `src/components/portfolio/FundList.tsx` - 列表组件
 
+### UI-003: 权重配置组件 ✓
+**状态**: 已完成
+**时间**: 2026-02-28
+**内容**:
+- [x] 等权重/自定义权重模式切换
+- [x] 权重实时编辑（自定义模式下）
+- [x] 总权重实时显示，非100%时红色警告
+- [x] 使用 React hooks（useState, useEffect）
+- [x] TypeScript 类型完整
+**文件**: `src/components/portfolio/WeightConfig.tsx`
+
+### UI-004: 时间范围选择器 ✓
+**状态**: 已完成
+**时间**: 2026-02-28
+**内容**:
+- [x] 快捷时间选择（1年/3年/5年/今年以来）
+- [x] 自定义日期选择器
+- [x] 日期范围校验（不得早于基金成立日）
+- [x] 当前选择区间实时显示
+- [x] TypeScript 类型完整
+**文件**: `src/components/portfolio/TimeRangeSelector.tsx`
+
 ## 任务状态概览
 
 | 模块 | P0任务 | 已完成 | 进行中 | 待开始 |
@@ -176,7 +198,7 @@
 | 基础设施 | 2 | 2 | 0 | 0 |
 | 数据层 | 2 | 2 | 0 | 0 |
 | 核心引擎 | 6 | 4 | 0 | 2 |
-| 界面 | 5 | 2 | 0 | 3 |
+| 界面 | 5 | 4 | 0 | 1 |
 | 图表 | 4 | 0 | 0 | 4 |
 | 功能 | 4 | 0 | 0 | 4 |
 | 增强功能 | 5 | 0 | 0 | 5 |
