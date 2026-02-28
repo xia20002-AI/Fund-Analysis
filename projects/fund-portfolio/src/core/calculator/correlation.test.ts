@@ -192,15 +192,17 @@ describe('CorrelationCalculator', () => {
       const matrix = {
         funds: ['FUND_A', 'FUND_B', 'FUND_C'],
         matrix: [
-          [1, 0.8, 0.3],
-          [0.8, 1, 0.85],
-          [0.3, 0.85, 1]
+          [1, 0.85, 0.45],
+          [0.85, 1, 0.78],
+          [0.45, 0.78, 1]
         ]
       };
 
       const result = CorrelationCalculator.findHighCorrelations(matrix, 0.75);
 
-      expect(result).toHaveLength(3); // AB, BC, AC都超过0.75
+      expect(result).toHaveLength(2); // AB(0.85), BC(0.78) 超过0.75
+      expect(result[0].correlation).toBe(0.85);
+      expect(result[1].correlation).toBe(0.78);
     });
 
     it('应检测负相关高相关性', () => {
