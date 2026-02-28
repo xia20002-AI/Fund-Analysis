@@ -6,7 +6,7 @@
   "tasks": [
     {"id": "INIT-001", "title": "项目初始化与环境搭建", "priority": "P0", "status": "completed"},
     {"id": "INIT-002", "title": "创建核心文件结构", "priority": "P0", "status": "in_progress"},
-    {"id": "DATA-001", "title": "数据存储抽象层实现", "priority": "P0", "status": "pending"},
+    {"id": "DATA-001", "title": "数据存储抽象层实现", "priority": "P0", "status": "completed"},
     {"id": "DATA-002", "title": "基金数据源接入", "priority": "P0", "status": "pending"},
     {"id": "CORE-001", "title": "核心类型定义", "priority": "P0", "status": "pending"},
     {"id": "CORE-002", "title": "组合净值计算引擎", "priority": "P0", "status": "pending"},
