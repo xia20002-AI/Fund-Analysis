@@ -1,6 +1,74 @@
-{
-  "project": "基金组合分析平台 MVP",
-  "decisions": [],
-  "created_at": "2026-02-28",
-  "last_updated": "2026-02-28"
-}
+[
+  {
+    "date": "2026-02-28",
+    "decision": "选择 ECharts 作为图表库",
+    "context": "需要支持净值曲线、回撤图、相关性热力图等多种金融图表",
+    "alternatives": ["Recharts", "Victory", "D3.js"],
+    "reasoning": "ECharts 金融图表专业，内置热力图支持，中文文档完善，社区活跃",
+    "decided_by": "总协调者",
+    "impact": "高"
+  },
+  {
+    "date": "2026-02-28",
+    "decision": "选择 Zustand 作为状态管理",
+    "context": "需要管理组合配置、分析结果、加载状态等",
+    "alternatives": ["Redux Toolkit", "Jotai", "React Context"],
+    "reasoning": "Zustand API 简洁，persist 中间件一行代码实现本地存储，无样板代码",
+    "decided_by": "总协调者",
+    "impact": "高"
+  },
+  {
+    "date": "2026-02-28",
+    "decision": "核心计算引擎使用纯 TypeScript",
+    "context": "需要支持 Web 端和未来小程序端复用",
+    "alternatives": ["Python 后端计算", "WASM"],
+    "reasoning": "纯 TS 无平台依赖，可直接在浏览器/Node/小程序云函数中运行",
+    "decided_by": "总协调者",
+    "impact": "高"
+  },
+  {
+    "date": "2026-02-28",
+    "decision": "使用 IndexedDB 进行本地数据缓存",
+    "context": "需要缓存基金净值数据，避免重复请求",
+    "alternatives": ["localStorage", "SessionStorage", "内存缓存"],
+    "reasoning": "IndexedDB 容量大(>5MB)，支持结构化数据，localForage 封装简化 API",
+    "decided_by": "总协调者",
+    "impact": "中"
+  },
+  {
+    "date": "2026-02-28",
+    "decision": "采用多 Agent 并行开发模式",
+    "context": "MVP 功能多，时间紧，需要并行推进",
+    "alternatives": ["单 Agent 串行开发", "人工开发"],
+    "reasoning": "按模块拆分到不同 Agent，Initializer/Coding/Testing/QA 各司其职，效率最高",
+    "decided_by": "用户",
+    "impact": "高"
+  },
+  {
+    "date": "2026-02-28",
+    "decision": "使用 AkShare 作为数据源，自建 API 代理",
+    "context": "需要基金净值数据，浏览器端有 CORS 限制",
+    "alternatives": ["Tushare Pro", "Wind API", "东方财富 API"],
+    "reasoning": "AkShare 免费，数据全面，自建代理解决 CORS，预留 Tushare Pro 作为备用",
+    "decided_by": "总协调者",
+    "impact": "中"
+  },
+  {
+    "date": "2026-02-28",
+    "decision": "Vitest 作为测试框架",
+    "context": "需要单元测试覆盖核心计算逻辑",
+    "alternatives": ["Jest", "Mocha"],
+    "reasoning": "Vitest 与 Vite 生态一致，配置简单，性能优秀",
+    "decided_by": "Coding Agent",
+    "impact": "中"
+  },
+  {
+    "date": "2026-02-28",
+    "decision": "Mock 数据支持离线开发",
+    "context": "开发时 API 可能不稳定或限流",
+    "alternatives": ["始终调用真实 API", "MSW (Mock Service Worker)"],
+    "reasoning": "内置 Mock 数据最简单，20只基金 + 5个基准足够开发测试",
+    "decided_by": "Coding Agent",
+    "impact": "低"
+  }
+]

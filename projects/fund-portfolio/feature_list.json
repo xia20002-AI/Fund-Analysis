@@ -32,5 +32,13 @@
     {"id": "P1-003", "title": "可选基准列表", "priority": "P1", "status": "pending"},
     {"id": "P1-004", "title": "资产分布饼图", "priority": "P1", "status": "pending"},
     {"id": "P1-005", "title": "月度收益热力图", "priority": "P1", "status": "pending"}
-  ]
+  ],
+  "summary": {
+    "P0_completed": 23,
+    "P0_total": 23,
+    "P1_completed": 0,
+    "P1_total": 5,
+    "test_status": "all_passed",
+    "build_status": "success"
+  }
 }
