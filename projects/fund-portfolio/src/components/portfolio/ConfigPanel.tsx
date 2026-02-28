@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FundInfo, PortfolioConfig, WeightMode } from '../../core/types';
+import type { FundConfig, FundInfo, PortfolioConfig } from '../../core/types';
 import { FundSearch } from './FundSearch';
 import { FundList } from './FundList';
 import { WeightConfig } from './WeightConfig';
@@ -11,7 +11,7 @@ interface ConfigPanelProps {
 }
 
 export const ConfigPanel: React.FC<ConfigPanelProps> = ({ onAnalyze, loading }) => {
-  const [funds, setFunds] = useState<Array<FundInfo & { weight: number }>>([]);
+  const [funds, setFunds] = useState<Array<FundConfig & Record<string, any>>>([]);
   const [startDate, setStartDate] = useState<string>('');
   const [endDate, setEndDate] = useState<string>('');
   
@@ -30,7 +30,7 @@ export const ConfigPanel: React.FC<ConfigPanelProps> = ({ onAnalyze, loading }) 
   };
   
   // 更新权重
-  const handleWeightChange = (newFunds: Array<FundInfo & { weight: number }>) => {
+  const handleWeightChange = (newFunds: Array<FundConfig & Record<string, any>>) => {
     setFunds(newFunds);
   };
   

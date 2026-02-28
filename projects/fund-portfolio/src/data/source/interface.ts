@@ -1,4 +1,4 @@
-import { FundInfo, NavData, FundType } from '../../core/types';
+import type { FundInfo, NavData, FundType } from '../../core/types';
 
 /**
  * 基金数据源接口
@@ -88,14 +88,21 @@ export interface NavApiData {
  * 数据源错误类型
  */
 export class DataSourceError extends Error {
+  readonly code: 'NETWORK_ERROR' | 'HTTP_ERROR' | 'PARSE_ERROR' | 'API_ERROR' | 'TIMEOUT_ERROR';
+  readonly statusCode?: number;
+  readonly originalError?: unknown;
+
   constructor(
     message: string,
-    public readonly code: 'NETWORK_ERROR' | 'HTTP_ERROR' | 'PARSE_ERROR' | 'API_ERROR' | 'TIMEOUT_ERROR',
-    public readonly statusCode?: number,
-    public readonly originalError?: unknown
+    code: 'NETWORK_ERROR' | 'HTTP_ERROR' | 'PARSE_ERROR' | 'API_ERROR' | 'TIMEOUT_ERROR',
+    statusCode?: number,
+    originalError?: unknown
   ) {
     super(message);
     this.name = 'DataSourceError';
+    this.code = code;
+    this.statusCode = statusCode;
+    this.originalError = originalError;
   }
 }
 

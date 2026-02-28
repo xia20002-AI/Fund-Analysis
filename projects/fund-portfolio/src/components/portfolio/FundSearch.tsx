@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { Search, ChevronDown } from 'lucide-react';
-import { FundInfo } from '../../core/types';
+import { useState, useEffect } from 'react';
+import { Search } from 'lucide-react';
+import type { FundInfo } from '../../core/types';
 import { WebDataSource } from '../../data/source';
 
 interface FundSearchProps {

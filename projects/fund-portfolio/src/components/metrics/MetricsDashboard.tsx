@@ -1,6 +1,6 @@
 import React from 'react';
 import { MetricCard } from './MetricCard';
-import { AnalysisResult } from '../../core/types';
+import type { AnalysisResult } from '../../core/types';
 
 interface MetricsDashboardProps {
   result: AnalysisResult;

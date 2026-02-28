@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import * as echarts from 'echarts';
-import { CorrelationMatrix } from '../../core/types';
+import type { CorrelationMatrix } from '../../core/types';
 
 interface CorrelationHeatmapProps {
   matrix: CorrelationMatrix;
@@ -21,8 +21,8 @@ export const CorrelationHeatmap: React.FC<CorrelationHeatmapProps> = ({
 
     // 转换数据为 ECharts 热力图格式
     const data: [number, number, number][] = [];
-    matrix.funds.forEach((fund1, i) => {
-      matrix.funds.forEach((fund2, j) => {
+    matrix.funds.forEach((_, i) => {
+      matrix.funds.forEach((_, j) => {
         data.push([i, j, matrix.matrix[i][j]]);
       });
     });

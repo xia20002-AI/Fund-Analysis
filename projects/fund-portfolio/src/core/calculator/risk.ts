@@ -1,4 +1,4 @@
-import { NavPoint, RiskMetrics, DrawdownPoint } from '../types';
+import type { NavPoint, RiskMetrics, DrawdownPoint } from '../types';
 
 /**
  * 风险指标计算器
@@ -164,7 +164,8 @@ export class RiskCalculator {
     dailyReturns?: number[]
   ): RiskMetrics {
     const maxDrawdownResult = this.calculateMaxDrawdown(navCurve);
-    const drawdownCurve = this.calculateDrawdownCurve(navCurve);
+    // drawdownCurve 可用于后续扩展，当前仅计算不使用
+    this.calculateDrawdownCurve(navCurve);
     
     // 如果没有提供日收益率，需要从navCurve计算
     const returns = dailyReturns || this.calculateDailyReturns(navCurve);

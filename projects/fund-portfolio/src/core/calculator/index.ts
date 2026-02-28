@@ -1,4 +1,4 @@
-import { PortfolioConfig, NavData, NavPoint } from '../types';
+import type { PortfolioConfig, NavData, NavPoint } from '../types';
 export { ReturnsCalculator } from './returns';
 export { RiskCalculator } from './risk';
 

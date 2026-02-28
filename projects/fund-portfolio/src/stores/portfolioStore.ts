@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { PortfolioConfig, AnalysisResult } from '../core/types';
+import type { PortfolioConfig, AnalysisResult } from '../core/types';
 
 interface PortfolioState {
   currentConfig: PortfolioConfig | null;

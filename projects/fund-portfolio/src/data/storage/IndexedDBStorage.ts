@@ -1,5 +1,6 @@
 import localforage from 'localforage';
-import { IStorage, PortfolioConfig, NavData } from './interface';
+import type { IStorage } from './interface';
+import type { PortfolioConfig, NavData } from './interface';
 
 export class IndexedDBStorage implements IStorage {
   private portfolioStore: LocalForage;

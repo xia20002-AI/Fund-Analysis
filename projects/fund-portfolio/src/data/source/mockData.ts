@@ -1,4 +1,4 @@
-import { FundInfo, NavData, FundType } from '../../core/types';
+import type { FundInfo, NavData, FundType } from '../../core/types';
 
 /**
  * Mock 基金数据

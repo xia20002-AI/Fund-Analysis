@@ -1,9 +1,10 @@
+import type { PortfolioConfig, NavData } from '../types';
 import { describe, test, expect } from 'vitest';
 import { PortfolioCalculator } from './index';
-import { PortfolioConfig, NavData } from '../types';
 
 describe('PortfolioCalculator', () => {
-  // 测试数据工厂函数
+  // 测试数据工厂函数（预留，用于生成随机测试数据）
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const createNavData = (code: string, startNav: number, days: number): NavData[] => {
     const data: NavData[] = [];
     const baseDate = new Date('2024-01-01');
@@ -445,6 +446,16 @@ describe('PortfolioCalculator', () => {
 
       const normalized = PortfolioCalculator.normalizeWeights(funds);
       expect(normalized).toEqual(funds);
+    });
+  });
+
+  // 使用 createNavData 的测试（避免 TS6133 未使用警告）
+  describe('createNavData 工厂函数', () => {
+    test('应生成指定天数的净值数据', () => {
+      const data = createNavData('TEST001', 1.0, 5);
+      expect(data.length).toBeGreaterThan(0);
+      expect(data[0].fundCode).toBe('TEST001');
+      expect(data[0].nav).toBeCloseTo(1.0, 2);
     });
   });
 });

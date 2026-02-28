@@ -1,4 +1,4 @@
-import { NavPoint, ReturnMetrics } from '../types';
+import type { NavPoint, ReturnMetrics } from '../types';
 
 /**
  * 收益率计算器

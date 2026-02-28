@@ -1,4 +1,3 @@
-import React from 'react';
 import { ConfigPanel } from './components/portfolio/ConfigPanel';
 import { ResultPanel } from './sections/ResultPanel';
 import { ErrorBoundary } from './components/common/ErrorBoundary';

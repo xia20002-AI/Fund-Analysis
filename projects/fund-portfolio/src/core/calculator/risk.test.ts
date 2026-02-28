@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { RiskCalculator } from './risk';
-import { NavPoint } from '../types';
+import type { NavPoint } from '../types';
 
 describe('RiskCalculator', () => {
   // 测试数据：包含回撤的净值曲线

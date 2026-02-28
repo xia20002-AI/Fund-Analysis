@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { QuickTimeRange } from '../../core/types';
+import type { QuickTimeRange } from '../../core/types';
 
 interface TimeRangeSelectorProps {
   startDate: string;

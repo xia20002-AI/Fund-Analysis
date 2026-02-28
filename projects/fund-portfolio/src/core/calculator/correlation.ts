@@ -1,4 +1,4 @@
-import { CorrelationMatrix } from '../types';
+import type { CorrelationMatrix } from '../types';
 
 /**
  * 相关性计算器

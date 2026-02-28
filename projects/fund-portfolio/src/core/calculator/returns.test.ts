@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { ReturnsCalculator } from './returns';
-import { NavPoint } from '../types';
+import type { NavPoint } from '../types';
 
 describe('ReturnsCalculator', () => {
   // 测试数据：模拟一个基金净值曲线

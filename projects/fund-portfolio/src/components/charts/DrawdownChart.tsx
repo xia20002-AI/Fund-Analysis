@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import * as echarts from 'echarts';
-import { DrawdownPoint } from '../../core/types';
+import type { DrawdownPoint } from '../../core/types';
 
 interface DrawdownChartProps {
   drawdownData: DrawdownPoint[];

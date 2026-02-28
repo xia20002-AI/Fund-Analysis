@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { PortfolioConfig, AnalysisResult, NavData, NavPoint } from '../core/types';
+import type { PortfolioConfig, AnalysisResult, NavData, NavPoint } from '../core/types';
 import { PortfolioCalculator } from '../core/calculator';
 import { ReturnsCalculator } from '../core/calculator/returns';
 import { RiskCalculator } from '../core/calculator/risk';

@@ -1,5 +1,6 @@
-import { IFundDataSource, FundSearchResult, DataSourceError, DEFAULT_CACHE_CONFIG } from './interface';
-import { FundInfo, NavData, FundType } from '../../core/types';
+import type { IFundDataSource, FundSearchResult } from './interface';
+import type { FundInfo, NavData } from '../../core/types';
+import { DataSourceError, DEFAULT_CACHE_CONFIG } from './interface';
 import { IndexedDBStorage } from '../storage/IndexedDBStorage';
 
 // 自建 API 代理（避免浏览器跨域问题）
@@ -164,8 +165,8 @@ export class WebDataSource implements IFundDataSource {
       );
     }
 
-    // 基准数据也使用缓存，缓存key加上 benchmark: 前缀
-    const cacheKey = `benchmark:${indexCode}`;
+    // 基准数据也使用缓存，缓存key加上 benchmark: 前缀（预留，当前未使用）
+    // const cacheKey = `benchmark:${indexCode}`;
 
     // 1. 尝试从缓存获取
     if (DEFAULT_CACHE_CONFIG.enabled) {
@@ -210,14 +211,9 @@ export class WebDataSource implements IFundDataSource {
         }))
         .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
-      // 4. 存入缓存（使用特殊key区分）
-      const cacheEntry = {
-        data: navData,
-        cachedAt: new Date().toISOString(),
-      };
-      // 使用 navStore 存储，但需要自定义key
-      // 这里我们通过 IndexedDBStorage 的私有属性访问，或者扩展接口
-      // 简化处理：使用 fundCode 存储，但加上 benchmark 标识
+      // 存入缓存（使用特殊key区分）
+      // 缓存逻辑待实现，当前直接返回数据
+      // const cacheEntry = { data: navData, cachedAt: new Date().toISOString() };
 
       return navData;
     } catch (error) {

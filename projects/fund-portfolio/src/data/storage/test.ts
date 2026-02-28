@@ -1,4 +1,5 @@
-import { IndexedDBStorage, PortfolioConfig, NavData } from './index';
+import { IndexedDBStorage } from './index';
+import type { PortfolioConfig, NavData } from './index';
 
 // 简单的测试函数
 export async function runStorageTests(): Promise<void> {

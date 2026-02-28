@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { FundConfig, WeightMode } from '../../core/types';
+import { useState, useEffect } from 'react';
+import type { FundConfig, WeightMode } from '../../core/types';
 
 interface WeightConfigProps {
-  funds: FundConfig[];
-  onChange: (funds: FundConfig[]) => void;
+  funds: Array<FundConfig & Record<string, any>>;
+  onChange: (funds: Array<FundConfig & Record<string, any>>) => void;
 }
 
 export const WeightConfig: React.FC<WeightConfigProps> = ({ funds, onChange }) => {

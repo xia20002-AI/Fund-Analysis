@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import * as echarts from 'echarts';
-import { NavPoint } from '../../core/types';
+import type { NavPoint } from '../../core/types';
 
 interface NavChartProps {
   portfolioNav: NavPoint[];

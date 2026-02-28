@@ -1,9 +1,5 @@
-import { 
-  NavPoint, 
-  RiskAdjustedMetrics, 
-  BenchmarkComparison,
-  DEFAULT_BENCHMARKS 
-} from '../types';
+import type { NavPoint, RiskAdjustedMetrics, BenchmarkComparison } from '../types';
+import { DEFAULT_BENCHMARKS } from '../types';
 
 /**
  * 基准与风险调整收益计算器

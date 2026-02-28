@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { BenchmarkCalculator } from './benchmark';
-import { NavPoint } from '../types';
+import type { NavPoint } from '../types';
 
 describe('BenchmarkCalculator', () => {
   describe('calculateSharpeRatio', () => {

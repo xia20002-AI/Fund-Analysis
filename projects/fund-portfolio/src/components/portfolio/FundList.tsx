@@ -1,6 +1,6 @@
 import React from 'react';
 import { X, AlertCircle } from 'lucide-react';
-import { FundConfig } from '../../core/types';
+import type { FundConfig } from '../../core/types';
 
 interface FundListProps {
   funds: FundConfig[];
