@@ -125,6 +125,31 @@
 
 ---
 
+### UI-005: 配置面板整合与状态管理 ✓
+**状态**: 已完成
+**时间**: 2026-02-28
+**内容**:
+- [x] ConfigPanel.tsx - 配置面板组件
+  - 整合 FundSearch 基金搜索
+  - 整合 FundList 已选基金列表
+  - 整合 WeightConfig 权重配置
+  - 整合 TimeRangeSelector 时间范围选择
+  - 基金可添加/删除
+  - 权重可配置，总权重校验
+  - 时间范围可选择
+  - 分析按钮状态正确（条件不满足时禁用）
+  - 点击分析触发 onAnalyze 回调
+- [x] portfolioStore.ts - Zustand 全局状态管理
+  - currentConfig: 当前配置
+  - analysisResult: 分析结果
+  - isAnalyzing: 加载状态
+  - error: 错误信息
+**文件**:
+- `src/components/portfolio/ConfigPanel.tsx` - 配置面板组件
+- `src/stores/portfolioStore.ts` - 状态管理 store
+
+---
+
 ### UI-001/002: 基金搜索与列表组件 ✓
 **状态**: 已完成
 **时间**: 2026-02-28
