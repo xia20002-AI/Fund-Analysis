@@ -1,34 +1,41 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 import { PortfolioConfig, AnalysisResult } from '../core/types';
 
 interface PortfolioState {
-  // 当前配置
   currentConfig: PortfolioConfig | null;
-  setCurrentConfig: (config: PortfolioConfig) => void;
-  
-  // 分析结果
   analysisResult: AnalysisResult | null;
-  setAnalysisResult: (result: AnalysisResult) => void;
-  
-  // 加载状态
   isAnalyzing: boolean;
-  setIsAnalyzing: (loading: boolean) => void;
-  
-  // 错误信息
   error: string | null;
+  
+  // Actions
+  setCurrentConfig: (config: PortfolioConfig) => void;
+  setAnalysisResult: (result: AnalysisResult) => void;
+  setIsAnalyzing: (loading: boolean) => void;
   setError: (error: string | null) => void;
+  clearError: () => void;
 }
 
-export const usePortfolioStore = create<PortfolioState>((set) => ({
-  currentConfig: null,
-  setCurrentConfig: (config) => set({ currentConfig: config }),
-  
-  analysisResult: null,
-  setAnalysisResult: (result) => set({ analysisResult: result }),
-  
-  isAnalyzing: false,
-  setIsAnalyzing: (loading) => set({ isAnalyzing: loading }),
-  
-  error: null,
-  setError: (error) => set({ error }),
-}));
+export const usePortfolioStore = create<PortfolioState>()(
+  persist(
+    (set) => ({
+      currentConfig: null,
+      analysisResult: null,
+      isAnalyzing: false,
+      error: null,
+      
+      setCurrentConfig: (config) => set({ currentConfig: config }),
+      setAnalysisResult: (result) => set({ analysisResult: result }),
+      setIsAnalyzing: (loading) => set({ isAnalyzing: loading }),
+      setError: (error) => set({ error }),
+      clearError: () => set({ error: null }),
+    }),
+    {
+      name: 'fund-portfolio-storage',
+      partialize: (state) => ({
+        currentConfig: state.currentConfig,
+        analysisResult: state.analysisResult,
+      }),
+    }
+  )
+);

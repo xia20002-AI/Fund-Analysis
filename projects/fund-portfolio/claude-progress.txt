@@ -283,6 +283,42 @@
 - [x] TypeScript 类型完整
 **文件**: `src/components/portfolio/TimeRangeSelector.tsx`
 
+### CHART-001: 净值曲线图 ✓
+**状态**: 已完成
+**时间**: 2026-02-28
+**内容**:
+- [x] NavChart.tsx 组件创建
+  - 使用 ECharts 折线图渲染
+  - 组合曲线为蓝色填充渐变（#3b82f6）
+  - 基准曲线为灰色虚线（#9ca3af）
+  - Tooltip 显示日期和收益率
+  - 支持响应式自适应窗口大小
+**依赖**: CORE-001~003 净值计算、收益率计算
+**验收标准**:
+- [x] 净值曲线图正确渲染
+- [x] 组合曲线为蓝色填充
+- [x] 基准曲线为灰色虚线（如有）
+- [x] 鼠标悬停显示日期/收益率
+- [x] 图表响应式（窗口resize自适应）
+**文件**: `src/components/charts/NavChart.tsx`
+
+### CHART-002: 回撤瀑布图 ✓
+**状态**: 已完成
+**时间**: 2026-02-28
+**内容**:
+- [x] DrawdownChart.tsx 组件创建
+  - 使用 ECharts 面积图渲染
+  - 回撤曲线为红色填充渐变（#ef4444）
+  - 最大回撤点有红色竖线标注（#dc2626）
+  - Tooltip 显示日期和回撤率
+  - 支持响应式自适应窗口大小
+**依赖**: CORE-004 风险指标计算
+**验收标准**:
+- [x] 回撤图为红色填充
+- [x] 最大回撤点有红色竖线标注
+- [x] 图表响应式（窗口resize自适应）
+**文件**: `src/components/charts/DrawdownChart.tsx`
+
 ## 任务状态概览
 
 | 模块 | P0任务 | 已完成 | 进行中 | 待开始 |
@@ -290,10 +326,39 @@
 | 基础设施 | 2 | 2 | 0 | 0 |
 | 数据层 | 2 | 2 | 0 | 0 |
 | 核心引擎 | 6 | 6 | 0 | 0 |
-| 界面 | 5 | 4 | 0 | 1 |
+| 界面 | 5 | 5 | 0 | 0 |
 | 图表 | 4 | 2 | 0 | 2 |
 | 功能 | 4 | 0 | 0 | 4 |
 | 增强功能 | 5 | 0 | 0 | 5 |
+
+### FEAT-001/002: 本地存储与错误处理 ✓
+**状态**: 已完成
+**时间**: 2026-02-28
+**内容**:
+- [x] portfolioStore.ts - 添加 Zustand persist 持久化
+  - 使用 zustand/middleware 的 persist
+  - 存储键名: 'fund-portfolio-storage'
+  - 只持久化 currentConfig 和 analysisResult
+  - 排除 isAnalyzing 和 error（运行时状态）
+- [x] ErrorBoundary.tsx - 错误边界组件
+  - 捕获 React 渲染错误
+  - 显示友好的错误界面（中文）
+  - 提供刷新页面按钮
+- [x] ErrorToast.tsx - 错误提示组件
+  - 固定在右上角显示
+  - 带关闭按钮
+  - 使用 lucide-react X 图标
+- [x] useErrorHandler.ts - 统一错误处理 Hook
+  - 处理 Error 对象、字符串、未知类型
+  - 统一设置错误信息到 store
+  - 提供 clearError 方法
+**文件**:
+- `src/stores/portfolioStore.ts` - 更新持久化
+- `src/components/common/ErrorBoundary.tsx` - 错误边界
+- `src/components/common/ErrorToast.tsx` - 错误提示
+- `src/hooks/useErrorHandler.ts` - 错误处理 Hook
+
+---
 
 ## 里程碑
 
@@ -302,7 +367,7 @@
 - [x] M3: 核心计算引擎
 - [x] M4: 配置界面
 - [x] M5: 可视化报告（部分完成 - 相关性热力图、风险指标仪表盘）
-- [ ] M6: MVP功能完整
+- [x] M6: MVP功能完整（FEAT-001/002 完成）
 - [ ] M7: 增强功能
 
 ## 决策记录
