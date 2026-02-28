@@ -1,0 +1,79 @@
+# Claude Progress Log - 基金组合分析平台 MVP
+
+## 项目信息
+- **项目名称**: fund-portfolio
+- **技术栈**: React 18 + TypeScript + Vite + Tailwind CSS + shadcn/ui + ECharts
+- **工作目录**: C:\Users\xiaro\.openclaw\workspace\projects\fund-portfolio
+
+## 初始化进度 (INIT-001/INIT-002)
+
+### 2026-02-28
+- [x] 项目目录创建
+- [x] Vite + React + TS 项目初始化
+- [x] 依赖安装完成
+- [x] Tailwind CSS 配置
+- [x] shadcn/ui 初始化
+- [x] 核心文件创建
+- [x] Git 初始化
+- [x] 项目启动测试
+
+## 核心模块进度 (CORE)
+
+### CORE-001 - 核心类型定义 ✓
+**状态**: 已完成
+**时间**: 2026-02-28
+**内容**:
+- [x] 基础类型定义 (FundInfo, FundType, NavData)
+- [x] 组合配置类型 (FundConfig, PortfolioConfig, WeightMode)
+- [x] 分析结果类型 (NavPoint, ReturnMetrics, RiskMetrics, RiskAdjustedMetrics)
+- [x] 基准对比类型 (BenchmarkComparison, BenchmarkInfo, DEFAULT_BENCHMARKS)
+- [x] 相关性矩阵类型 (CorrelationMatrix)
+- [x] 时间范围类型 (QuickTimeRange, TimeRange)
+- [x] TypeScript 类型检查通过
+**文件**: `src/core/types/index.ts`
+
+## 数据层进度 (DATA-001/DATA-002)
+
+### DATA-001: 数据存储抽象层实现
+- [x] IStorage 接口定义完成
+- [x] IndexedDBStorage 实现所有方法
+- [x] 组合配置存储（保存/读取/删除/获取所有）
+- [x] 基金净值数据缓存
+- [x] 存储空间信息查询
+- [x] 测试代码编写完成
+
+### DATA-002: 基金数据源接入
+- [ ] 待开始
+
+---
+
+## 任务状态概览
+
+| 模块 | P0任务 | 已完成 | 进行中 | 待开始 |
+|------|--------|--------|--------|--------|
+| 基础设施 | 2 | 2 | 0 | 0 |
+| 数据层 | 2 | 1 | 1 | 0 |
+| 核心引擎 | 6 | 0 | 0 | 6 |
+| 界面 | 5 | 0 | 0 | 5 |
+| 图表 | 4 | 0 | 0 | 4 |
+| 功能 | 4 | 0 | 0 | 4 |
+| 增强功能 | 5 | 0 | 0 | 5 |
+
+## 里程碑
+
+- [x] M1: 基础设施就绪
+- [ ] M2: 数据层完成
+- [ ] M3: 核心计算引擎
+- [ ] M4: 配置界面
+- [ ] M5: 可视化报告
+- [ ] M6: MVP功能完整
+- [ ] M7: 增强功能
+
+## 决策记录
+
+参见: decisions.json
+
+## 备注
+
+- 初始提交由 Initializer Agent 完成
+- 下一任务: DATA-001 数据存储抽象层实现
