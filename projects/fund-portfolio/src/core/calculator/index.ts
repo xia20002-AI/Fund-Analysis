@@ -1,4 +1,6 @@
 import { PortfolioConfig, NavData, NavPoint } from '../types';
+export { ReturnsCalculator } from './returns';
+export { RiskCalculator } from './risk';
 
 /**
  * 组合净值计算器

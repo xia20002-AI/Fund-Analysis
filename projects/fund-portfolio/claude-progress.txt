@@ -80,6 +80,49 @@
 - `src/core/calculator/index.ts` - 计算器实现
 - `src/core/calculator/calculator.test.ts` - 单元测试
 
+### CORE-003 - 收益率计算模块 ✓
+**状态**: 已完成
+**时间**: 2026-02-28
+**内容**:
+- [x] `calculateTotalReturn` 累计收益率计算
+  - 公式：(期末净值/期初净值 - 1) × 100
+  - 精度：4位小数
+- [x] `calculateAnnualizedReturn` 年化收益率计算（几何平均）
+  - 公式：(期末/期初)^(365/天数) - 1
+  - 正确处理不同时间周期
+- [x] `calculateWinRate` 年度胜率计算 (P1)
+  - 盈利年份占比
+  - 支持跨年数据分析
+- [x] `calculateDailyReturns` 每日收益率序列
+  - 公式：(当日净值/前日净值 - 1)
+  - 返回小数形式
+- [x] 单元测试覆盖 (24个测试用例)
+  - 与 Excel 对比误差 < 0.1%
+  - 边界情况（单点、空数组、undefined）
+  - 不同时间周期验证
+**文件**: `src/core/calculator/returns.ts`, `src/core/calculator/returns.test.ts`
+
+### CORE-004 - 风险指标计算模块 ✓
+**状态**: 已完成
+**时间**: 2026-02-28
+**内容**:
+- [x] `calculateMaxDrawdown` 最大回撤计算
+  - 算法：遍历每个点作为高点，找到之后最低点
+  - 返回最大回撤及起止时间
+- [x] `calculateDrawdownCurve` 回撤曲线计算
+  - 每个点的回撤率（相对于前期高点）
+  - 标记最大回撤点用于图表展示
+- [x] `calculateVolatility` 年化波动率计算
+  - 公式：日标准差 × √252
+  - 样本标准差（n-1）
+- [x] `calculateDownsideVolatility` 下行波动率 (P1)
+  - 只计算下跌时的波动
+- [x] 单元测试覆盖 (26个测试用例)
+  - 与 Excel 对比误差 < 0.1%
+  - 复杂回撤场景验证
+  - 边界情况（极大值、极小值、空数组）
+**文件**: `src/core/calculator/risk.ts`, `src/core/calculator/risk.test.ts`
+
 ---
 
 ## 任务状态概览
@@ -88,7 +131,7 @@
 |------|--------|--------|--------|--------|
 | 基础设施 | 2 | 2 | 0 | 0 |
 | 数据层 | 2 | 2 | 0 | 0 |
-| 核心引擎 | 6 | 2 | 0 | 4 |
+| 核心引擎 | 6 | 4 | 0 | 2 |
 | 界面 | 5 | 0 | 0 | 5 |
 | 图表 | 4 | 0 | 0 | 4 |
 | 功能 | 4 | 0 | 0 | 4 |
